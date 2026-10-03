@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import VisitorCounter from "@/components/visitor-counter";
 
 type Project = {
   slug: string;
@@ -34,7 +35,6 @@ export default function Home() {
     const node = root.current;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // scroll reveal
     const io = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("in")),
       { threshold: 0.12 }
@@ -43,7 +43,6 @@ export default function Home() {
 
     if (!node || reduced) return () => { clearTimeout(t); io.disconnect(); };
 
-    // cursor parallax
     let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
     const move = (e: MouseEvent) => {
       tx = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -94,9 +93,9 @@ export default function Home() {
         <nav className="nav-links">
           <a href="#index">Explore</a>
           <a href="#categories">Categories</a>
-          <Link href="/signal">Signal</Link>
           <Link href="/submit">Submit</Link>
         </nav>
+        <VisitorCounter />
         <span className="nav-state"><i className="ping-dot" /> PUBLIC INDEX</span>
       </header>
 
@@ -218,7 +217,7 @@ export default function Home() {
         <div><p>Suggest a publicly accessible project. It will be checked and reviewed before publication.</p><Link href="/submit" className="btn-primary">Submit a project ↗</Link></div>
       </section>
 
-      <footer className="footer shell"><span>QINDEX / 2026</span><span>AN INDEPENDENT PUBLIC ECOSYSTEM INDEX</span><span>Q / END</span></footer>
+      <footer className="footer shell"><span>QINDEX / 2026</span><span>Q / END</span></footer>
     </main>
   );
 }
