@@ -1,9 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "QIndex — The Quilibrium Web Index",
   description: "A public index of discoverable websites, applications, tools and projects connected to the Quilibrium ecosystem.",
+};
+
+export const viewport: Viewport = {
   themeColor: "#030304",
 };
 
