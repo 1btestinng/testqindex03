@@ -36,7 +36,7 @@ button{cursor:pointer}
 .shell{width:min(1180px,calc(100% - 64px));margin:auto}
 
 /* ============ STAGE / TEXTURES ============ */
-.site-stage{position:relative;min-height:100vh;overflow:hidden;background:var(--void)}
+.site-stage{position:relative;min-height:100vh;overflow:hidden;background-color:var(--void);background-image:linear-gradient(180deg,rgba(3,3,4,.28),rgba(3,3,4,.52)),url('/backgrounds/qindex-background-desktop.png');background-size:cover;background-position:center top;background-attachment:fixed}
 /* blockchain grid, fading to edges */
 .site-stage:before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:
@@ -105,3 +105,5 @@ button{cursor:pointer}
 .intro-kicker,.eyebrow{display:flex;align-items:center;gap:10px;font:500 9px 'JetBrains Mono',monospace;letter-spacing:.2em;color:var(--orange);text-transform:uppercase}
 .intro-kicker:before,.eyebrow:before{content:"";width:22px;height:1px;background:linear-gradient(90deg,var(--orange),transparent)}
 .intro h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(58px,8.6vw,116px);font-weight:600;line-height:.92;letter-spacing:-.045em;margin:26px 0 30px;max-width:760px}
+
+@media(max-width:760px){.site-stage{background-image:linear-gradient(180deg,rgba(3,3,4,.28),rgba(3,3,4,.52)),url('/backgrounds/qindex-background-mobile.png');background-position:center top;background-attachment:scroll}}
